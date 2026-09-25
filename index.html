@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>⚡ ScootFlash</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- AMBIENT BACKGROUND GLOWS -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- LIZENZ GATE (LOGIN) -->
+  <div id="licenseGate" class="license-gate">
+    <div class="glass-card login-card">
+      <div class="brand-badge">PRO ACCESS</div>
+      <h2>Lizenz freischalten</h2>
+      <p>Gib deinen persönlichen Freischaltcode ein, um das Tuning-Gateway zu öffnen.</p>
+      
+      <form id="licenseForm">
+        <div class="input-wrapper">
+          <input type="text" id="licenseInput" placeholder="RT-XXXX-2026" required autocomplete="off" spellcheck="false">
+        </div>
+        <button type="submit" class="btn btn-primary btn-glow btn-large">System Aktivieren</button>
+      </form>
+      <div id="licenseError" class="error-msg"></div>
+
+      <!-- TIKTOK BUY LINK -->
+      <a href="https://www.tiktok.com/@sxm3d18" target="_blank" rel="noopener noreferrer" class="tiktok-buy-btn">
+        <svg class="tiktok-icon" viewBox="0 0 448 512">
+          <path d="M448 209.91a210.06 210.06 0 0 1-122.77-39.25V349.38A162.55 162.55 0 1 1 185 188.31V278.2a74.62 74.62 0 1 0 52.23 71.18V0l88 0a121.18 121.18 0 0 0 1.86 22.17h0A122.18 122.18 0 0 0 381 102.39a121.43 121.43 0 0 0 67 20.14z"/>
+        </svg>
+        Noch keinen Code? Hier bei @sxm3d18 kaufen
+      </a>
+    </div>
+  </div>
+
+  <!-- HAUPTANWENDUNG -->
+  <div id="appShell" class="app-shell locked">
+
+    <!-- HEADER -->
+    <header class="app-header glass-card">
+      <div class="header-left">
+        <div class="logo-icon">⚡</div>
+        <div class="header-graphic">
+          <svg class="scooter-vector" viewBox="0 0 100 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 45H35L45 30H75L85 45H90" stroke="var(--accent-cyan)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="25" cy="45" r="10" fill="var(--bg-deep)" stroke="var(--accent-cyan)" stroke-width="3"/>
+            <circle cx="75" cy="45" r="10" fill="var(--bg-deep)" stroke="var(--accent-cyan)" stroke-width="3"/>
+            <path d="M70 30L60 10H75" stroke="var(--accent-blue)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M45 30L50 15" stroke="var(--accent-cyan)" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <h1>ScooterX <span style="color: var(--accent-cyan);">Flash Pro</span></h1>
+          <span class="online-indicator"><span class="dot"></span> REALTIME SYNC</span>
+        </div>
+      </div>
+      <button id="adminOpen" class="btn btn-secondary btn-sm" style="display: none;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Admin
+      </button>
+    </header>
+
+    <main class="main-content">
+      <!-- SCHRITT 1: MODELLWAHL -->
+      <section class="glass-card step-card">
+        <div class="step-header">
+          <span class="step-num">01</span>
+          <h2>E-Scooter Modell wählen</h2>
+        </div>
+        
+        <div class="scooter-grid">
+          <div class="scooter-card selected" data-model="g3d"><span class="scooter-name">Ninebot MAX G3</span><span class="scooter-tag">SHFW / SHU</span></div>
+          <div class="scooter-card" data-model="g2d"><span class="scooter-name">Ninebot MAX G2 / G2D</span><span class="scooter-tag">SHFW</span></div>
+          <div class="scooter-card" data-model="g30d"><span class="scooter-name">Ninebot G30 / G30D</span><span class="scooter-tag">Classic</span></div>
+          <div class="scooter-card" data-model="zt3pro"><span class="scooter-name">Ninebot ZT3 Pro D</span><span class="scooter-tag">48V Beast</span></div>
+          <div class="scooter-card" data-model="p100s"><span class="scooter-name">Ninebot P100S / P65</span><span class="scooter-tag">Performance</span></div>
+          <div class="scooter-card" data-model="gt2"><span class="scooter-name">Segway GT1 / GT2</span><span class="scooter-tag">Ultra Speed</span></div>
+          <div class="scooter-card" data-model="f2pro"><span class="scooter-name">Ninebot F2 / F2 Pro</span><span class="scooter-tag">Urban</span></div>
+          <div class="scooter-card" data-model="f40"><span class="scooter-name">Ninebot F20 - F40</span><span class="scooter-tag">Standard</span></div>
+          <div class="scooter-card" data-model="m365pro2"><span class="scooter-name">Xiaomi Pro 2 / Pro</span><span class="scooter-tag">Popular</span></div>
+          <div class="scooter-card" data-model="mi_1s"><span class="scooter-name">Xiaomi 1S / Essential</span><span class="scooter-tag">Light</span></div>
+          <div class="scooter-card" data-model="mi3"><span class="scooter-name">Xiaomi Scooter 3</span><span class="scooter-tag">Gen 3</span></div>
+          <div class="scooter-card" data-model="mi4pro"><span class="scooter-name">Xiaomi 4 Pro</span><span class="scooter-tag">High Power</span></div>
+          <div class="scooter-card" data-model="mi4ultra"><span class="scooter-name">Xiaomi 4 Ultra</span><span class="scooter-tag">Dual Suspension</span></div>
+          <div class="scooter-card" data-model="navee_xt5"><span class="scooter-name">Navee ST3 / XT5</span><span class="scooter-tag">Offroad</span></div>
+          <div class="scooter-card" data-model="navee_n65"><span class="scooter-name">Navee N65 / N60</span><span class="scooter-tag">Heavy Duty</span></div>
+          <div class="scooter-card" data-model="navee_s65"><span class="scooter-name">Navee S65 / S65C</span><span class="scooter-tag">Premium</span></div>
+        </div>
+
+        <div class="info-row">
+          <div class="info-badge"><span class="info-label">Spannung</span><b id="voltageValue">48V</b></div>
+          <div class="info-badge"><span class="info-label">Peak</span><b id="motorValue">1200W</b></div>
+          <div class="info-badge"><span class="info-label">Speed Target</span><b id="rangeValue">20 km/h (US: 40)</b></div>
+        </div>
+      </section>
+
+      <!-- SCHRITT 2: GESCHWINDIGKEIT -->
+      <section class="glass-card step-card">
+        <div class="step-header">
+          <span class="step-num">02</span>
+          <h2>Zielgeschwindigkeit</h2>
+        </div>
+
+        <div class="profile-grid">
+          <div class="profile-card" data-speed="22"><span class="profile-title">ECO</span><span class="profile-val">22 km/h</span></div>
+          <div class="profile-card active" data-speed="35"><span class="profile-title">DRIVE</span><span class="profile-val">35 km/h</span></div>
+          <div class="profile-card" data-speed="55"><span class="profile-title">SPORT</span><span class="profile-val">55 km/h</span></div>
+          <div class="profile-card" data-speed="75"><span class="profile-title">RACE</span><span class="profile-val">75 km/h</span></div>
+        </div>
+
+        <div class="slider-box">
+          <div class="slider-header">
+            <span>Fine Tuning Speed</span>
+            <span id="speedValue" class="slider-display">35 <small>km/h</small></span>
+          </div>
+          <input type="range" id="speedSlider" min="15" max="85" step="1" value="35">
+        </div>
+      </section>
+
+      <!-- SCHRITT 3: POWER -->
+      <section class="glass-card step-card">
+        <div class="step-header">
+          <span class="step-num">03</span>
+          <h2>Motor Power & Dynamic</h2>
+        </div>
+
+        <div class="power-grid">
+          <div class="power-card" data-power="800">800 W</div>
+          <div class="power-card active" data-power="1500">1.500 W</div>
+          <div class="power-card" data-power="2200">2.200 W</div>
+          <div class="power-card" data-power="3000">3.000 W</div>
+        </div>
+
+        <div class="slider-box">
+          <div class="slider-header">
+            <span>Peak Output Limit</span>
+            <span id="powerValue" class="slider-display">1.500 <small>W</small></span>
+          </div>
+          <input type="range" id="powerSlider" min="300" max="3000" step="50" value="1500">
+        </div>
+
+        <div class="select-grid">
+          <div class="select-group">
+            <label for="kersSelect">Rekuperation (KERS)</label>
+            <select id="kersSelect">
+              <option value="Aus">Aus (Freilauf)</option>
+              <option value="Schwach" selected>Schwach</option>
+              <option value="Mittel">Mittel</option>
+              <option value="Stark">Stark</option>
+            </select>
+          </div>
+          <div class="select-group">
+            <label for="throttleSelect">Gasannahme Modus</label>
+            <select id="throttleSelect">
+              <option value="Sanft">Sanft (Komfort)</option>
+              <option value="Linear" selected>Linear (Speed)</option>
+              <option value="Aggressiv">Direct DPC (Raw)</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCHRITT 4: GEHEIMER CODE -->
+      <section class="glass-card step-card">
+        <div class="step-header">
+          <span class="step-num">04</span>
+          <h2>SHU Trigger Kombi</h2>
+        </div>
+
+        <div class="combo-builder">
+          <div id="comboDisplay" class="combo-display">
+            <span class="combo-placeholder">Min. 4 Tasten-Aktionen drücken...</span>
+          </div>
+          <div class="combo-buttons">
+            <button class="combo-btn" data-input="Bremse">Bremse</button>
+            <button class="combo-btn" data-input="Gas">Gas</button>
+            <button class="combo-btn" data-input="Power 2x">Power 2x</button>
+            <button class="combo-btn" data-input="Blinker L">Blinker L</button>
+            <button class="combo-btn" data-input="Blinker R">Blinker R</button>
+            <button id="clearCombo" class="btn btn-secondary btn-sm">Reset</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VERBINDEN & ANWENDEN -->
+      <section class="action-card glass-card">
+        <button id="connectDevice" class="btn btn-secondary btn-large">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 7l10 10-5 5V2l5 5L7 17"/></svg>
+          1. Web-Bluetooth Verbinden
+        </button>
+        <button id="applyButton" class="btn btn-primary btn-large btn-glow">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          2. Tuning Profil Flashen
+        </button>
+        <div id="statusLine" class="status-line">System bereit zum Synchronisieren.</div>
+      </section>
+    </main>
+  </div>
+
+  <!-- RESPONSIVE ADMIN DIALOG -->
+  <dialog id="adminDialog" class="admin-dialog">
+    <div class="dialog-header">
+      <div class="header-title">
+        <span class="admin-badge">REALTIME CONTROL</span>
+        <h2>Admin Dashboard</h2>
+      </div>
+      <button id="adminClose" class="btn-close">&times;</button>
+    </div>
+
+    <div class="dialog-body">
+      <form id="adminUnlockForm" class="admin-auth-box">
+        <h3>Admin Authentifizierung</h3>
+        <p>Gib den Master Schlüssel ein, um Zugriff auf die Echtzeit-Lizenzverwaltung zu erhalten.</p>
+        <div class="input-row">
+          <input type="password" id="adminCodeInput" placeholder="Master Key..." required spellcheck="false">
+          <button type="submit" class="btn btn-primary">Einloggen</button>
+        </div>
+        <div id="adminError" class="error-msg"></div>
+      </form>
+
+      <div id="adminTools" hidden class="admin-tools-container">
+        <div class="admin-stats-grid">
+          <div class="stat-card"><span class="stat-label">Gesamt Keys</span><span id="statTotal" class="stat-value">0</span></div>
+          <div class="stat-card"><span class="stat-label">Aktive Keys</span><span id="statActive" class="stat-value text-success">0</span></div>
+          <div class="stat-card"><span class="stat-label">Gesperrt</span><span id="statBlocked" class="stat-value text-danger">0</span></div>
+        </div>
+
+        <div class="admin-section">
+          <h3>Neuen Lizenzcode generieren</h3>
+          <form id="createCodeForm" class="generator-form">
+            <input type="text" id="codeLabel" placeholder="Kundenname / Notiz" required>
+            <button type="submit" class="btn btn-primary">+ Code Erstellen</button>
+          </form>
+          <div id="generatedCode" class="success-box" hidden></div>
+        </div>
+
+        <div class="admin-section">
+          <div class="section-header">
+            <h3>Live Lizenz-Datenbank</h3>
+            <input type="text" id="codeSearchInput" class="search-input" placeholder="Nach Code oder Name suchen...">
+          </div>
+          <div id="codeList" class="code-list-table"></div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Korrigiertes Einbinden als ES-Modul ohne _2 Suffix -->
+  <script type="module" src="app.js"></script>
+</body>
+</html>
