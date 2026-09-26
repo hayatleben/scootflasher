@@ -796,3 +796,12 @@ input[type="range"]::-webkit-slider-thumb {
   0% { filter: drop-shadow(0 0 4px rgba(6, 182, 212, 0.3)); }
   100% { filter: drop-shadow(0 0 12px rgba(6, 182, 212, 0.8)); }
 }
+
+.brand-section-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
