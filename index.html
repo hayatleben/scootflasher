@@ -69,36 +69,62 @@
     </header>
 
     <main class="main-content">
-      <!-- SCHRITT 1: MODELLWAHL -->
+      <!-- SCHRITT 1: MODELLWAHL IN 3 ABSCHNITTEN -->
       <section class="glass-card step-card">
         <div class="step-header">
           <span class="step-num">01</span>
           <h2>E-Scooter Modell wählen</h2>
         </div>
         
-        <div class="scooter-grid">
-          <div class="scooter-card selected" data-model="g3d"><span class="scooter-name">Ninebot MAX G3</span><span class="scooter-tag">SHFW / SHU</span></div>
-          <div class="scooter-card" data-model="g2d"><span class="scooter-name">Ninebot MAX G2 / G2D</span><span class="scooter-tag">SHFW</span></div>
-          <div class="scooter-card" data-model="g30d"><span class="scooter-name">Ninebot G30 / G30D</span><span class="scooter-tag">Classic</span></div>
-          <div class="scooter-card" data-model="zt3pro"><span class="scooter-name">Ninebot ZT3 Pro D</span><span class="scooter-tag">48V Beast</span></div>
-          <div class="scooter-card" data-model="p100s"><span class="scooter-name">Ninebot P100S / P65</span><span class="scooter-tag">Performance</span></div>
-          <div class="scooter-card" data-model="gt2"><span class="scooter-name">Segway GT1 / GT2</span><span class="scooter-tag">Ultra Speed</span></div>
-          <div class="scooter-card" data-model="f2pro"><span class="scooter-name">Ninebot F2 / F2 Pro</span><span class="scooter-tag">Urban</span></div>
-          <div class="scooter-card" data-model="f40"><span class="scooter-name">Ninebot F20 - F40</span><span class="scooter-tag">Standard</span></div>
-          <div class="scooter-card" data-model="m365pro2"><span class="scooter-name">Xiaomi Pro 2 / Pro</span><span class="scooter-tag">Popular</span></div>
-          <div class="scooter-card" data-model="mi_1s"><span class="scooter-name">Xiaomi 1S / Essential</span><span class="scooter-tag">Light</span></div>
-          <div class="scooter-card" data-model="mi3"><span class="scooter-name">Xiaomi Scooter 3</span><span class="scooter-tag">Gen 3</span></div>
-          <div class="scooter-card" data-model="mi4pro"><span class="scooter-name">Xiaomi 4 Pro</span><span class="scooter-tag">High Power</span></div>
-          <div class="scooter-card" data-model="mi4ultra"><span class="scooter-name">Xiaomi 4 Ultra</span><span class="scooter-tag">Dual Suspension</span></div>
-          <div class="scooter-card" data-model="navee_xt5"><span class="scooter-name">Navee ST3 / XT5</span><span class="scooter-tag">Offroad</span></div>
-          <div class="scooter-card" data-model="navee_n65"><span class="scooter-name">Navee N65 / N60</span><span class="scooter-tag">Heavy Duty</span></div>
-          <div class="scooter-card" data-model="navee_s65"><span class="scooter-name">Navee S65 / S65C</span><span class="scooter-tag">Premium</span></div>
+        <!-- ABSCHNITT 1: NAVEE -->
+        <div class="brand-section">
+          <h3 class="brand-section-title">🔹 NAVEE Modelle</h3>
+          <div class="scooter-grid">
+            <div class="scooter-card selected" data-model="navee_gt3_max"><span class="scooter-name">NAVEE GT3 Max</span><span class="scooter-tag">GT-Serie</span></div>
+            <div class="scooter-card" data-model="navee_st3_pro"><span class="scooter-name">NAVEE ST3 Pro</span><span class="scooter-tag">ST-Serie</span></div>
+            <div class="scooter-card" data-model="navee_xt5_max"><span class="scooter-name">NAVEE XT5 Max</span><span class="scooter-tag">XT-Serie</span></div>
+            <div class="scooter-card" data-model="navee_nt5_max"><span class="scooter-name">NAVEE NT5 Max</span><span class="scooter-tag">NT-Serie</span></div>
+            <div class="scooter-card" data-model="navee_n65"><span class="scooter-name">NAVEE N65</span><span class="scooter-tag">N-Serie</span></div>
+            <div class="scooter-card" data-model="navee_s60d"><span class="scooter-name">NAVEE S60-D</span><span class="scooter-tag">S-Serie</span></div>
+            <div class="scooter-card" data-model="navee_v40i"><span class="scooter-name">NAVEE V40i Pro</span><span class="scooter-tag">V-Serie</span></div>
+          </div>
         </div>
 
-        <div class="info-row">
+        <!-- ABSCHNITT 2: XIAOMI -->
+        <div class="brand-section" style="margin-top: 25px;">
+          <h3 class="brand-section-title">🔸 Xiaomi Modelle</h3>
+          <div class="scooter-grid">
+            <div class="scooter-card" data-model="mi_6_ultra"><span class="scooter-name">Xiaomi Scooter 6 Ultra</span><span class="scooter-tag">Gen 6</span></div>
+            <div class="scooter-card" data-model="mi_6_pro"><span class="scooter-name">Xiaomi Scooter 6 Pro</span><span class="scooter-tag">Gen 6</span></div>
+            <div class="scooter-card" data-model="mi_5_pro"><span class="scooter-name">Xiaomi Scooter 5 Pro</span><span class="scooter-tag">Gen 5</span></div>
+            <div class="scooter-card" data-model="mi_4_ultra"><span class="scooter-name">Xiaomi 4 Ultra</span><span class="scooter-tag">Gen 4</span></div>
+            <div class="scooter-card" data-model="mi_4_pro"><span class="scooter-name">Xiaomi 4 Pro</span><span class="scooter-tag">Gen 4</span></div>
+            <div class="scooter-card" data-model="mi_pro2"><span class="scooter-name">Xiaomi Pro 2 / M365 Pro</span><span class="scooter-tag">Classic</span></div>
+            <div class="scooter-card" data-model="mi_1s"><span class="scooter-name">Xiaomi 1S / Essential</span><span class="scooter-tag">Light</span></div>
+            <div class="scooter-card" data-model="mi_3"><span class="scooter-name">Xiaomi Scooter 3</span><span class="scooter-tag">Gen 3</span></div>
+          </div>
+        </div>
+
+        <!-- ABSCHNITT 3: SEGWAY-NINEBOT -->
+        <div class="brand-section" style="margin-top: 25px;">
+          <h3 class="brand-section-title">⚡ Segway-Ninebot Modelle</h3>
+          <div class="scooter-grid">
+            <div class="scooter-card" data-model="g30d2"><span class="scooter-name">Ninebot MAX G30D II</span><span class="scooter-tag">MAX-Serie</span></div>
+            <div class="scooter-card" data-model="g2d"><span class="scooter-name">Ninebot MAX G2 D</span><span class="scooter-tag">MAX-Serie</span></div>
+            <div class="scooter-card" data-model="g3d"><span class="scooter-name">Ninebot MAX G3 D</span><span class="scooter-tag">MAX-Serie</span></div>
+            <div class="scooter-card" data-model="f2_pro"><span class="scooter-name">Ninebot F2 Pro D</span><span class="scooter-tag">F-Serie</span></div>
+            <div class="scooter-card" data-model="f40d"><span class="scooter-name">Ninebot F40D</span><span class="scooter-tag">F-Serie</span></div>
+            <div class="scooter-card" data-model="e2_pro"><span class="scooter-name">Ninebot E2 Pro D</span><span class="scooter-tag">E-Serie</span></div>
+            <div class="scooter-card" data-model="zt3_pro"><span class="scooter-name">Segway ZT3 Pro D</span><span class="scooter-tag">ZT-Serie</span></div>
+            <div class="scooter-card" data-model="gt3_pro"><span class="scooter-name">Segway GT3 Pro</span><span class="scooter-tag">GT-Serie</span></div>
+            <div class="scooter-card" data-model="d38d"><span class="scooter-name">Ninebot D38D</span><span class="scooter-tag">D-Serie</span></div>
+          </div>
+        </div>
+
+        <div class="info-row" style="margin-top: 25px;">
           <div class="info-badge"><span class="info-label">Spannung</span><b id="voltageValue">48V</b></div>
-          <div class="info-badge"><span class="info-label">Peak</span><b id="motorValue">1200W</b></div>
-          <div class="info-badge"><span class="info-label">Speed Target</span><b id="rangeValue">20 km/h (US: 40)</b></div>
+          <div class="info-badge"><span class="info-label">Peak</span><b id="motorValue">1500W</b></div>
+          <div class="info-badge"><span class="info-label">Speed Target</span><b id="rangeValue">20 km/h (US: 45)</b></div>
         </div>
       </section>
 
@@ -253,7 +279,6 @@
     </div>
   </dialog>
 
-  <!-- Korrigiertes Einbinden als ES-Modul ohne _2 Suffix -->
   <script type="module" src="app.js"></script>
 </body>
 </html>
