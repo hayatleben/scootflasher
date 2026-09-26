@@ -71,7 +71,7 @@ function initRealtimeSync() {
           fbCodes.push({ 
             id: key, 
             code: itemData.code || key, 
-            active: itemData.active !== undefined ? itemData.active : true, // Fallback falls active fehlt
+            active: itemData.active !== undefined ? itemData.active : true, 
             ...itemData 
           });
         });
@@ -204,7 +204,7 @@ if (createCodeForm) {
       code: newCode, 
       label: label, 
       created: new Date().toISOString(), 
-      active: true // Hier wird active fest auf true gesetzt
+      active: true 
     };
 
     globalCodes.unshift(newEntry);
@@ -226,28 +226,41 @@ if (createCodeForm) {
   });
 }
 
-/* ─────────── CONFIGURATOR & HARDWARE LOGIC ─────────── */
+/* ─────────── CONFIGURATOR & HARDWARE LOGIC (AKTUALISIERT) ─────────── */
 const models = {
-  g3d:       { name: 'Ninebot MAX G3',        voltage: '48V', motor: '1200W Peak', range: '20 km/h (US: 40)' },
-  g2d:       { name: 'Ninebot MAX G2 / G2D',  voltage: '36V', motor: '900W Peak',  range: '20 km/h (US: 35)' },
-  g30d:      { name: 'Ninebot MAX G30 / G30D',voltage: '36V', motor: '700W Peak',  range: '20 km/h (US: 30)' },
-  zt3pro:    { name: 'Ninebot ZT3 Pro D',     voltage: '48V', motor: '1600W Peak', range: '20 km/h (US: 40)' },
-  p100s:     { name: 'Ninebot P100S / P65',   voltage: '48V', motor: '1350W Peak', range: '20 km/h (US: 48)' },
-  gt2:       { name: 'Segway GT1 / GT2',      voltage: '50.4V',motor: '6000W Peak', range: '70 km/h Dual' },
-  f2pro:     { name: 'Ninebot F2 / F2 Pro',   voltage: '36V', motor: '900W Peak',  range: '20 km/h (US: 32)' },
-  f40:       { name: 'Ninebot F20-F40',       voltage: '36V', motor: '700W Peak',  range: '20 km/h (US: 30)' },
-  m365pro2:  { name: 'Xiaomi Pro 2 / Pro',    voltage: '36V', motor: '600W Peak',  range: '20 km/h (US: 32)' },
-  mi_1s:     { name: 'Xiaomi 1S / Essential', voltage: '36V', motor: '500W Peak',  range: '20 km/h (US: 25)' },
-  mi3:       { name: 'Xiaomi Scooter 3',      voltage: '36V', motor: '600W Peak',  range: '20 km/h (US: 30)' },
-  mi4pro:    { name: 'Xiaomi 4 Pro',          voltage: '48V', motor: '1000W Peak', range: '20 km/h (US: 35)' },
-  mi4ultra:  { name: 'Xiaomi 4 Ultra',        voltage: '48V', motor: '940W Peak',  range: '20 km/h (US: 32)' },
-  navee_xt5: { name: 'Navee ST3 / XT5',       voltage: '48V', motor: '1350W Peak', range: '20 km/h (US: 45)' },
-  navee_n65: { name: 'Navee N65 / N60',       voltage: '48V', motor: '1000W Peak', range: '20 km/h (US: 32)' },
-  navee_s65: { name: 'Navee S65 / S65C',      voltage: '48V', motor: '1000W Peak', range: '20 km/h (US: 32)' }
+  // NAVEE MODELLE
+  navee_gt3_max: { name: 'NAVEE GT3 Max', voltage: '48V', motor: '1500W Peak', range: '20 km/h (US: 45)' },
+  navee_st3_pro: { name: 'NAVEE ST3 Pro', voltage: '48V', motor: '1350W Peak', range: '20 km/h (US: 40)' },
+  navee_xt5_max: { name: 'NAVEE XT5 Max', voltage: '48V', motor: '1600W Peak', range: '20 km/h (US: 50)' },
+  navee_nt5_max: { name: 'NAVEE NT5 Max', voltage: '48V', motor: '1400W Peak', range: '20 km/h (US: 45)' },
+  navee_n65:     { name: 'NAVEE N65', voltage: '48V', motor: '1000W Peak', range: '20 km/h (US: 32)' },
+  navee_s60d:    { name: 'NAVEE S60-D', voltage: '48V', motor: '1200W Peak', range: '20 km/h (US: 40)' },
+  navee_v40i:    { name: 'NAVEE V40i Pro', voltage: '36V', motor: '700W Peak', range: '20 km/h (US: 32)' },
+
+  // XIAOMI MODELLE
+  mi_6_ultra:    { name: 'Xiaomi Electric Scooter 6 Ultra', voltage: '48V', motor: '1200W Peak', range: '20 km/h (US: 45)' },
+  mi_6_pro:      { name: 'Xiaomi Electric Scooter 6 Pro', voltage: '48V', motor: '1000W Peak', range: '20 km/h (US: 35)' },
+  mi_5_pro:      { name: 'Xiaomi Electric Scooter 5 Pro', voltage: '36V', motor: '900W Peak', range: '20 km/h (US: 32)' },
+  mi_4_ultra:    { name: 'Xiaomi 4 Ultra', voltage: '48V', motor: '940W Peak', range: '20 km/h (US: 32)' },
+  mi_4_pro:      { name: 'Xiaomi 4 Pro', voltage: '48V', motor: '1000W Peak', range: '20 km/h (US: 35)' },
+  mi_pro2:       { name: 'Xiaomi Pro 2 / M365 Pro', voltage: '36V', motor: '600W Peak', range: '20 km/h (US: 32)' },
+  mi_1s:         { name: 'Xiaomi 1S / Essential', voltage: '36V', motor: '500W Peak', range: '20 km/h (US: 25)' },
+  mi_3:          { name: 'Xiaomi Scooter 3', voltage: '36V', motor: '600W Peak', range: '20 km/h (US: 30)' },
+
+  // SEGWAY-NINEBOT MODELLE
+  g30d2:         { name: 'Ninebot MAX G30D II', voltage: '36V', motor: '700W Peak', range: '20 km/h (US: 30)' },
+  g2d:           { name: 'Ninebot MAX G2 D', voltage: '36V', motor: '1000W Peak', range: '20 km/h (US: 35)' },
+  g3d:           { name: 'Ninebot MAX G3 D', voltage: '48V', motor: '1200W Peak', range: '20 km/h (US: 40)' },
+  f2_pro:        { name: 'Ninebot F2 Pro D', voltage: '36V', motor: '900W Peak', range: '20 km/h (US: 32)' },
+  f40d:          { name: 'Ninebot F40D', voltage: '36V', motor: '700W Peak', range: '20 km/h (US: 30)' },
+  e2_pro:        { name: 'Ninebot E2 Pro D', voltage: '36V', motor: '750W Peak', range: '20 km/h (US: 28)' },
+  zt3_pro:       { name: 'Segway ZT3 Pro D', voltage: '48V', motor: '1600W Peak', range: '20 km/h (US: 40)' },
+  gt3_pro:       { name: 'Segway GT3 Pro', voltage: '52V', motor: '6000W Peak', range: '70 km/h Dual' },
+  d38d:          { name: 'Ninebot D38D', voltage: '36V', motor: '500W Peak', range: '20 km/h (US: 30)' }
 };
 
 const scooterCards = [...document.querySelectorAll('.scooter-card')];
-let activeModel = 'g3d';
+let activeModel = 'navee_gt3_max';
 
 scooterCards.forEach(card => card.addEventListener('click', () => {
   activeModel = card.dataset.model;
