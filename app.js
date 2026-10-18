@@ -15,7 +15,7 @@
 
   const app = initializeApp(firebaseConfig);
   const db = getDatabase(app);
-  const ADMIN_CODE = "RT-ADMIN-2026";
+  const ADMIN_CODE = "RT-SAMEDLEMANA-2026";
 
   /* ─────────── DOM ELEMENTS ─────────── */
   const licenseGate = document.querySelector('#licenseGate');
@@ -56,7 +56,7 @@
     localStorage.removeItem('rt_codes');
 
     globalCodes = [
-      { id: '1', code: 'RT-ADMIN-2026', label: 'Master Admin Code', active: true }
+      { id: '1', code: 'RT-SAMEDLEMANA-2026', label: 'Master Admin Code', active: true }
     ];
     renderCodes();
 
