@@ -1,1 +1,386 @@
-const _0x154052=_0x4068;(function(_0x374461,_0x391369){const _0x5db643=_0x4068,_0x353876=_0x374461();while(!![]){try{const _0x30c129=parseInt(_0x5db643(0x1b6))/(0x5*0x1c+-0x3*0x5f7+0x1*0x115a)*(-parseInt(_0x5db643(0x20d))/(0x1*-0x12c1+0x1f3b+-0x8*0x18f))+parseInt(_0x5db643(0x1da))/(0x4f5+-0x37*0x45+-0x9*-0x119)+-parseInt(_0x5db643(0x1d0))/(-0x1b3c+0x4a7*-0x1+0x1fe7)*(parseInt(_0x5db643(0xb9))/(0x2*-0x125+0x1afd+-0x1e6*0xd))+parseInt(_0x5db643(0x111))/(-0x1*0x1b3b+-0x904+0x26b*0xf)*(-parseInt(_0x5db643(0x1ec))/(-0x144c+0x37*0x9b+-0xcfa))+parseInt(_0x5db643(0x181))/(-0x12c4*0x1+0x1fa1*-0x1+-0x10cf*-0x3)+-parseInt(_0x5db643(0x1bf))/(-0x4*0x2d5+-0x2474+0x2fd1)*(parseInt(_0x5db643(0xf1))/(-0x49b*0x7+0xb52+-0x1*-0x14f5))+parseInt(_0x5db643(0xa0))/(0x61*-0x1f+0x25cf*-0x1+0x3199*0x1)*(parseInt(_0x5db643(0x210))/(0x1fe4*-0x1+-0x82*0x1d+0x2eaa));if(_0x30c129===_0x391369)break;else _0x353876['push'](_0x353876['shift']());}catch(_0x3c4b45){_0x353876['push'](_0x353876['shift']());}}}(_0x1647,0xb155a+-0xc1cea+0x1*0x73939));import{initializeApp}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';import{getDatabase,ref,set,get,child,update,onValue}from'https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js';const firebaseConfig={'apiKey':_0x154052(0x168)+_0x154052(0xac)+_0x154052(0x120)+_0x154052(0x1e0),'authDomain':_0x154052(0x17f)+_0x154052(0x89)+_0x154052(0xcc),'databaseURL':_0x154052(0x1a5)+_0x154052(0x157)+_0x154052(0xce)+_0x154052(0x14d)+_0x154052(0xc0)+_0x154052(0x75)+_0x154052(0x154),'projectId':_0x154052(0x17f),'storageBucket':_0x154052(0x17f)+_0x154052(0x205)+_0x154052(0x1c8),'messagingSenderId':_0x154052(0x8c)+'09','appId':_0x154052(0x232)+_0x154052(0x7e)+_0x154052(0x141)+_0x154052(0x7f)+'4','measurementId':_0x154052(0x18b)+'RY'},app=initializeApp(firebaseConfig),db=getDatabase(app),ADMIN_CODE=_0x154052(0xf8)+_0x154052(0x13b),licenseGate=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x164)+'te'),appShell=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x16a)),licenseForm=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x96)+'rm'),licenseInput=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x110)+_0x154052(0xf6)),licenseError=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x1ea)+_0x154052(0x186)),adminDialog=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0xbb)+'og'),adminClose=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x1ee)+'e'),adminUnlockForm=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x14b)+_0x154052(0xc1)),adminCodeInput=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x1de)+_0x154052(0x165)),adminError=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x187)+'r'),adminTools=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x103)+'s'),createCodeForm=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x207)+_0x154052(0x1f6)),codeLabel=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x1c5)),generatedCode=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0xb5)+_0x154052(0xad)),codeList=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x130)),codeSearchInput=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x123)+_0x154052(0x231)),statTotal=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x15d)),statActive=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0xd1)+'e'),statBlocked=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x21e)+'ed'),adminOpenBtn=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x13d));let globalCodes=[];function status(_0x1d7f8a,_0x3d1564=![]){const _0x4f7492=_0x154052,_0x190409={'qFqlk':_0x4f7492(0xd3)+'e','AmhZS':_0x4f7492(0xbd)+_0x4f7492(0x10e),'GrHhW':_0x4f7492(0xbd)+_0x4f7492(0x1ce)},_0x385fd0=document[_0x4f7492(0x204)+_0x4f7492(0xfb)](_0x190409[_0x4f7492(0xa6)]);_0x385fd0&&(_0x385fd0[_0x4f7492(0xb0)+'t']=_0x1d7f8a,_0x385fd0[_0x4f7492(0x11d)][_0x4f7492(0xc5)]=_0x3d1564?_0x190409[_0x4f7492(0x149)]:_0x190409[_0x4f7492(0x1cf)]);}function _0x4068(_0x2ab69a,_0x1f5b94){_0x2ab69a=_0x2ab69a-(0xed0+0x8e*-0x3d+0x1375);const _0x4d5ffc=_0x1647();let _0x3537d3=_0x4d5ffc[_0x2ab69a];return _0x3537d3;}function initRealtimeSync(){const _0x290f34=_0x154052,_0x298326={'kbZdO':function(_0x35a4f0,_0x102c7d){return _0x35a4f0!==_0x102c7d;},'PvAfY':function(_0xf18728,_0x407282){return _0xf18728>_0x407282;},'hCfcM':function(_0x1d1530,_0x396aa4){return _0x1d1530(_0x396aa4);},'vUYuf':_0x290f34(0xed)+_0x290f34(0x112)+_0x290f34(0x1c6),'xJnpQ':_0x290f34(0x16b),'UPTet':_0x290f34(0xf8)+_0x290f34(0x13b),'ofBLP':_0x290f34(0x21f)+_0x290f34(0x91),'dWivX':function(_0x5cddd1){return _0x5cddd1();},'yNFCG':function(_0x16f9f2,_0x5a22c5,_0x17d3bb){return _0x16f9f2(_0x5a22c5,_0x17d3bb);},'unMHM':_0x290f34(0x160),'jSOkR':function(_0x24c7dc,_0xdb0bd7,_0xc08345,_0x5432fb){return _0x24c7dc(_0xdb0bd7,_0xc08345,_0x5432fb);}};localStorage[_0x290f34(0x1cb)](_0x298326[_0x290f34(0xef)]),globalCodes=[{'id':'1','code':_0x298326[_0x290f34(0x126)],'label':_0x298326[_0x290f34(0x101)],'active':!![]}],_0x298326[_0x290f34(0x1b9)](renderCodes);if(db){const _0x2e3c42=_0x298326[_0x290f34(0x178)](ref,db,_0x298326[_0x290f34(0x92)]);_0x298326[_0x290f34(0x1b8)](onValue,_0x2e3c42,_0x2d8897=>{const _0x3deb40=_0x290f34,_0x2ec6b0=_0x2d8897[_0x3deb40(0xf9)]();if(_0x2ec6b0){const _0xfe16e2=[];Object[_0x3deb40(0x134)](_0x2ec6b0)[_0x3deb40(0x1af)](_0x5536e5=>{const _0x5a9143=_0x3deb40,_0x415f9a=_0x2ec6b0[_0x5536e5];_0xfe16e2[_0x5a9143(0x1f8)]({'id':_0x5536e5,'code':_0x415f9a[_0x5a9143(0x1ed)]||_0x5536e5,'active':_0x298326[_0x5a9143(0x1d8)](_0x415f9a[_0x5a9143(0x118)],undefined)?_0x415f9a[_0x5a9143(0x118)]:!![],..._0x415f9a});}),_0x298326[_0x3deb40(0x217)](_0xfe16e2[_0x3deb40(0x22a)],0x1*-0x1cff+0x28+-0x45*-0x6b)&&(globalCodes=_0xfe16e2,_0x298326[_0x3deb40(0x167)](renderCodes,codeSearchInput?codeSearchInput[_0x3deb40(0x229)]:''));}},_0x53a94b=>{const _0x3c5eda=_0x290f34;console[_0x3c5eda(0x170)](_0x298326[_0x3c5eda(0xfe)],_0x53a94b);});}}licenseForm&&licenseForm[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0xb4),_0x586582=>{const _0x5ec4b1=_0x154052,_0x1bc77c={'ykBRu':function(_0x59d439,_0x4bce0e){return _0x59d439===_0x4bce0e;},'pSKMJ':_0x5ec4b1(0x159)+'1','PgoPV':_0x5ec4b1(0x22f)+'x','lQXQG':function(_0x2471fe,_0x66e887){return _0x2471fe(_0x66e887);},'dkMCK':_0x5ec4b1(0x230)+_0x5ec4b1(0x74)+_0x5ec4b1(0xe0),'MfBce':_0x5ec4b1(0x1e3),'jgnQj':_0x5ec4b1(0x7d)+'d','DpFcC':_0x5ec4b1(0x1c2),'vKgUH':_0x5ec4b1(0x8e),'taSyV':function(_0x2add9e,_0x57f88c){return _0x2add9e(_0x57f88c);},'wjndF':_0x5ec4b1(0xab)+_0x5ec4b1(0x13f)+_0x5ec4b1(0x1ca),'bySoY':_0x5ec4b1(0x99)+_0x5ec4b1(0x224)+_0x5ec4b1(0x1a6)+_0x5ec4b1(0x1d5)};_0x586582[_0x5ec4b1(0x152)+_0x5ec4b1(0x1be)]();const _0x8c635=licenseInput?licenseInput[_0x5ec4b1(0x229)][_0x5ec4b1(0xd6)]()[_0x5ec4b1(0xfa)+'e']():'';if(_0x1bc77c[_0x5ec4b1(0x109)](_0x8c635,ADMIN_CODE)){const _0x1fae69=_0x1bc77c[_0x5ec4b1(0x11c)][_0x5ec4b1(0x175)]('|');let _0x4241bd=0x2431+0x1*-0xa47+-0x19ea;while(!![]){switch(_0x1fae69[_0x4241bd++]){case'0':if(adminOpenBtn)adminOpenBtn[_0x5ec4b1(0x11d)][_0x5ec4b1(0xf5)]=_0x1bc77c[_0x5ec4b1(0x16e)];continue;case'1':return;case'2':if(licenseError)licenseError[_0x5ec4b1(0xb0)+'t']='';continue;case'3':_0x1bc77c[_0x5ec4b1(0x12d)](status,_0x1bc77c[_0x5ec4b1(0x16d)]);continue;case'4':appShell[_0x5ec4b1(0x95)][_0x5ec4b1(0xaf)](_0x1bc77c[_0x5ec4b1(0x203)]);continue;case'5':licenseGate[_0x5ec4b1(0x95)][_0x5ec4b1(0xbe)](_0x1bc77c[_0x5ec4b1(0x1ad)]);continue;}break;}}const _0x3b974c=globalCodes[_0x5ec4b1(0x104)](_0x1f960e=>_0x1f960e[_0x5ec4b1(0x1ed)][_0x5ec4b1(0xfa)+'e']()===_0x8c635&&_0x1f960e[_0x5ec4b1(0x118)]);if(_0x3b974c){const _0x254926=_0x1bc77c[_0x5ec4b1(0x1dd)][_0x5ec4b1(0x175)]('|');let _0x58674e=-0x1*-0x5ce+-0x1ba1*-0x1+-0x216f;while(!![]){switch(_0x254926[_0x58674e++]){case'0':licenseGate[_0x5ec4b1(0x95)][_0x5ec4b1(0xbe)](_0x1bc77c[_0x5ec4b1(0x1ad)]);continue;case'1':appShell[_0x5ec4b1(0x95)][_0x5ec4b1(0xaf)](_0x1bc77c[_0x5ec4b1(0x203)]);continue;case'2':if(adminOpenBtn)adminOpenBtn[_0x5ec4b1(0x11d)][_0x5ec4b1(0xf5)]=_0x1bc77c[_0x5ec4b1(0x85)];continue;case'3':_0x1bc77c[_0x5ec4b1(0x19b)](status,_0x1bc77c[_0x5ec4b1(0x140)]);continue;case'4':if(licenseError)licenseError[_0x5ec4b1(0xb0)+'t']='';continue;}break;}}else{if(licenseError)licenseError[_0x5ec4b1(0xb0)+'t']=_0x1bc77c[_0x5ec4b1(0x218)];if(licenseInput)licenseInput[_0x5ec4b1(0x1e8)]();}});adminOpenBtn&&adminOpenBtn[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0x20e),()=>adminDialog[_0x154052(0x137)]());adminUnlockForm&&adminUnlockForm[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0xb4),_0x494537=>{const _0x5bcb84=_0x154052,_0x1b605={'hmWAQ':function(_0x48a2c2,_0x13cd15){return _0x48a2c2===_0x13cd15;},'tXOQo':function(_0x344d03){return _0x344d03();},'YCgZH':_0x5bcb84(0x21c)+_0x5bcb84(0x15b)};_0x494537[_0x5bcb84(0x152)+_0x5bcb84(0x1be)](),_0x1b605[_0x5bcb84(0x194)](adminCodeInput[_0x5bcb84(0x229)][_0x5bcb84(0xd6)]()[_0x5bcb84(0xfa)+'e'](),ADMIN_CODE)?(adminTools[_0x5bcb84(0x1f5)]=![],adminUnlockForm[_0x5bcb84(0x1f5)]=!![],adminError[_0x5bcb84(0xb0)+'t']='',_0x1b605[_0x5bcb84(0x10a)](renderCodes)):adminError[_0x5bcb84(0xb0)+'t']=_0x1b605[_0x5bcb84(0x11a)];});if(adminClose)adminClose[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0x20e),()=>adminDialog[_0x154052(0x234)]());function renderCodes(_0x14f124=''){const _0x35281d=_0x154052,_0x1ae970={'dRiKG':function(_0x504c7f,_0x55606f){return _0x504c7f(_0x55606f);},'cLEEQ':function(_0x5e9ff5,_0x3f10ee){return _0x5e9ff5!==_0x3f10ee;},'EfKvh':function(_0x1eb7dc,_0x3a9b70,_0x4e8436){return _0x1eb7dc(_0x3a9b70,_0x4e8436);},'IdPuM':function(_0x5a2604,_0x5e9fe4){return _0x5a2604+_0x5e9fe4;},'mSpCo':_0x35281d(0x1f0),'tvctv':_0x35281d(0xb3),'vEaMD':_0x35281d(0xc8)+'d','khPti':_0x35281d(0xc3),'wLJFN':_0x35281d(0x143)+'ve','zYFnr':_0x35281d(0xeb)+_0x35281d(0x8a),'fKaSN':_0x35281d(0x6f),'LbAxL':_0x35281d(0x127),'JphNO':_0x35281d(0x17b),'mccrc':_0x35281d(0x94)+'k','rXXAa':_0x35281d(0x132),'UiwLH':_0x35281d(0x19c),'rVHkO':_0x35281d(0xea)+_0x35281d(0xbc),'MnPWX':_0x35281d(0x20e),'iZGTQ':_0x35281d(0xcd)+_0x35281d(0x1d9)+_0x35281d(0x156)+_0x35281d(0xff)+_0x35281d(0x1a0)+_0x35281d(0x142)+_0x35281d(0x7a)+_0x35281d(0x1c9)+_0x35281d(0x1d7)+_0x35281d(0x1d4)+_0x35281d(0x1d6)+_0x35281d(0xe4)+_0x35281d(0xae)};if(!codeList)return;codeList[_0x35281d(0x86)]='';const _0x46554b=globalCodes[_0x35281d(0x12b)](_0x56535d=>_0x56535d[_0x35281d(0x1ed)][_0x35281d(0xa1)+'e']()[_0x35281d(0x8b)](_0x14f124[_0x35281d(0xa1)+'e']())||_0x56535d[_0x35281d(0x184)]&&_0x56535d[_0x35281d(0x184)][_0x35281d(0xa1)+'e']()[_0x35281d(0x8b)](_0x14f124[_0x35281d(0xa1)+'e']()));if(statTotal)statTotal[_0x35281d(0xb0)+'t']=globalCodes[_0x35281d(0x22a)];if(statActive)statActive[_0x35281d(0xb0)+'t']=globalCodes[_0x35281d(0x12b)](_0x7386d3=>_0x7386d3[_0x35281d(0x118)])[_0x35281d(0x22a)];if(statBlocked)statBlocked[_0x35281d(0xb0)+'t']=globalCodes[_0x35281d(0x12b)](_0x3bee2b=>!_0x3bee2b[_0x35281d(0x118)])[_0x35281d(0x22a)];if(!_0x46554b[_0x35281d(0x22a)]){codeList[_0x35281d(0x86)]=_0x1ae970[_0x35281d(0x180)];return;}_0x46554b[_0x35281d(0x1af)](_0x5c459a=>{const _0x209753=_0x35281d,_0x41eb62=document[_0x209753(0xf2)+_0x209753(0xe1)](_0x1ae970[_0x209753(0x20c)]);_0x41eb62[_0x209753(0x1b5)]=_0x209753(0x22e)+_0x209753(0x90)+(_0x5c459a[_0x209753(0x118)]?'':_0x1ae970[_0x209753(0x155)]),_0x41eb62[_0x209753(0x86)]=_0x209753(0x21a)+_0x209753(0x169)+_0x209753(0xfd)+_0x209753(0xee)+_0x209753(0x146)+_0x209753(0x12a)+_0x209753(0x1c1)+'>'+_0x5c459a[_0x209753(0x1ed)]+(_0x209753(0xaa)+_0x209753(0x146)+_0x209753(0x12a)+_0x209753(0x193)+_0x209753(0x76))+(_0x5c459a[_0x209753(0x184)]||_0x1ae970[_0x209753(0x17e)])+(_0x209753(0xaa)+_0x209753(0x153)+_0x209753(0x1a1)+_0x209753(0x235)+_0x209753(0xba)+_0x209753(0x11b)+_0x209753(0x146)+_0x209753(0x12a)+_0x209753(0x14c)+_0x209753(0x144))+(_0x5c459a[_0x209753(0x118)]?_0x1ae970[_0x209753(0x113)]:_0x1ae970[_0x209753(0x19a)])+'\x22>'+(_0x5c459a[_0x209753(0x118)]?_0x1ae970[_0x209753(0x147)]:_0x1ae970[_0x209753(0x1fe)])+(_0x209753(0xaa)+_0x209753(0xd0)+_0x209753(0x20b)+_0x209753(0xa8)+_0x209753(0x1e2))+(_0x5c459a[_0x209753(0x118)]?_0x1ae970[_0x209753(0x18a)]:_0x1ae970[_0x209753(0xd2)])+(_0x209753(0xfc)+_0x209753(0xdf)+_0x209753(0x10c))+(_0x5c459a[_0x209753(0x118)]?_0x1ae970[_0x209753(0x202)]:_0x1ae970[_0x209753(0x108)])+(_0x209753(0x22d)+_0x209753(0xb8)+_0x209753(0x21a)+_0x209753(0x1ac)),_0x41eb62[_0x209753(0x204)+_0x209753(0xfb)](_0x1ae970[_0x209753(0x1eb)])[_0x209753(0xf7)+_0x209753(0x98)](_0x1ae970[_0x209753(0x166)],()=>{const _0x40dcb0=_0x209753,_0x55c6e7=!_0x5c459a[_0x40dcb0(0x118)];_0x5c459a[_0x40dcb0(0x118)]=_0x55c6e7,_0x1ae970[_0x40dcb0(0x1a3)](renderCodes,_0x14f124),db&&_0x5c459a['id']&&_0x1ae970[_0x40dcb0(0x83)](_0x5c459a['id'],'1')&&_0x1ae970[_0x40dcb0(0x135)](update,_0x1ae970[_0x40dcb0(0x135)](ref,db,_0x1ae970[_0x40dcb0(0x1fd)](_0x1ae970[_0x40dcb0(0x1ff)],_0x5c459a['id'])),{'active':_0x55c6e7});}),codeList[_0x209753(0x13a)+'d'](_0x41eb62);});}codeSearchInput&&codeSearchInput[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0x1fb),_0x23a321=>renderCodes(_0x23a321[_0x154052(0x20a)][_0x154052(0x229)]));createCodeForm&&createCodeForm[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0xb4),_0xed7e22=>{const _0x3a49e3=_0x154052,_0x3e53eb={'vGafU':function(_0x51cbdf,_0x4b7512){return _0x51cbdf+_0x4b7512;},'MwNLP':_0x3a49e3(0x226),'eDDin':function(_0x11748c,_0x34dcee){return _0x11748c(_0x34dcee);},'kbOHT':function(_0x34c52b,_0x226a28,_0x5033c7){return _0x34c52b(_0x226a28,_0x5033c7);},'bnCWR':function(_0x319f0a,_0x5eadce,_0x114006){return _0x319f0a(_0x5eadce,_0x114006);},'KgxSq':function(_0x205d37,_0x50acc1){return _0x205d37+_0x50acc1;},'TkSla':_0x3a49e3(0x1f0),'YtgNU':_0x3a49e3(0x18d)+_0x3a49e3(0x1e5)+_0x3a49e3(0x87)+_0x3a49e3(0x22c)};_0xed7e22[_0x3a49e3(0x152)+_0x3a49e3(0x1be)]();const _0x5f4bfd=codeLabel[_0x3a49e3(0x229)][_0x3a49e3(0xd6)]();if(!_0x5f4bfd)return;const _0x268f68=Math[_0x3a49e3(0x16f)]()[_0x3a49e3(0xb7)](-0x1e55+0x1834+0x645)[_0x3a49e3(0x1db)](-0x1591*-0x1+-0xa*0x98+0x5d*-0x2b,-0x117*-0x15+0x17a2+-0x2e7d)[_0x3a49e3(0xfa)+'e'](),_0x1fbed7=_0x3a49e3(0x105)+_0x268f68+_0x3a49e3(0xa2),_0x5cca72=_0x3e53eb[_0x3a49e3(0x15e)](_0x3e53eb[_0x3a49e3(0x233)],Date[_0x3a49e3(0x1ae)]()),_0x16c40d={'id':_0x5cca72,'code':_0x1fbed7,'label':_0x5f4bfd,'created':new Date()[_0x3a49e3(0x114)+'g'](),'active':!![]};globalCodes[_0x3a49e3(0x221)](_0x16c40d),_0x3e53eb[_0x3a49e3(0x208)](renderCodes,codeSearchInput?codeSearchInput[_0x3a49e3(0x229)]:'');if(db)try{_0x3e53eb[_0x3a49e3(0x124)](set,_0x3e53eb[_0x3a49e3(0x79)](ref,db,_0x3e53eb[_0x3a49e3(0x151)](_0x3e53eb[_0x3a49e3(0x196)],_0x5cca72)),_0x16c40d);}catch(_0x3f1b94){console[_0x3a49e3(0x170)](_0x3e53eb[_0x3a49e3(0x21b)]);}generatedCode&&(generatedCode[_0x3a49e3(0x1f5)]=![],generatedCode[_0x3a49e3(0x86)]=_0x3a49e3(0x1e1)+_0x3a49e3(0x211)+_0x3a49e3(0x9c)+_0x3a49e3(0xc4)+_0x1fbed7+_0x3a49e3(0x161)+_0x5f4bfd+(_0x3a49e3(0x9b)+_0x3a49e3(0x173))),codeLabel[_0x3a49e3(0x229)]='';});const models={'navee_gt3_max':{'name':_0x154052(0x1aa)+_0x154052(0x191),'voltage':_0x154052(0x209),'motor':_0x154052(0x1f3),'range':_0x154052(0xd4)+_0x154052(0xde)},'navee_st3_pro':{'name':_0x154052(0xc9)+_0x154052(0x1ab),'voltage':_0x154052(0x209),'motor':_0x154052(0x93),'range':_0x154052(0xd4)+_0x154052(0x133)},'navee_xt5_max':{'name':_0x154052(0x189)+_0x154052(0x191),'voltage':_0x154052(0x209),'motor':_0x154052(0x1f7),'range':_0x154052(0xd4)+_0x154052(0x148)},'navee_nt5_max':{'name':_0x154052(0x182)+_0x154052(0x191),'voltage':_0x154052(0x209),'motor':_0x154052(0x199),'range':_0x154052(0xd4)+_0x154052(0xde)},'navee_n65':{'name':_0x154052(0xbf),'voltage':_0x154052(0x209),'motor':_0x154052(0x107),'range':_0x154052(0xd4)+_0x154052(0x223)},'navee_s60d':{'name':_0x154052(0xa9)+'D','voltage':_0x154052(0x209),'motor':_0x154052(0x1d1),'range':_0x154052(0xd4)+_0x154052(0x133)},'navee_v40i':{'name':_0x154052(0x214)+_0x154052(0x9d),'voltage':_0x154052(0x1df),'motor':_0x154052(0x1f1),'range':_0x154052(0xd4)+_0x154052(0x223)},'mi_6_ultra':{'name':_0x154052(0x16c)+_0x154052(0x17d)+_0x154052(0x197)+'a','voltage':_0x154052(0x209),'motor':_0x154052(0x1d1),'range':_0x154052(0xd4)+_0x154052(0xde)},'mi_6_pro':{'name':_0x154052(0x16c)+_0x154052(0x17d)+_0x154052(0x88),'voltage':_0x154052(0x209),'motor':_0x154052(0x107),'range':_0x154052(0xd4)+_0x154052(0x177)},'mi_5_pro':{'name':_0x154052(0x16c)+_0x154052(0x17d)+_0x154052(0x119),'voltage':_0x154052(0x1df),'motor':_0x154052(0x145),'range':_0x154052(0xd4)+_0x154052(0x223)},'mi_4_ultra':{'name':_0x154052(0x1fc)+_0x154052(0x14f),'voltage':_0x154052(0x209),'motor':_0x154052(0x188),'range':_0x154052(0xd4)+_0x154052(0x223)},'mi_4_pro':{'name':_0x154052(0x19f)+'ro','voltage':_0x154052(0x209),'motor':_0x154052(0x107),'range':_0x154052(0xd4)+_0x154052(0x177)},'mi_pro2':{'name':_0x154052(0x11e)+_0x154052(0x10b)+_0x154052(0x1ab),'voltage':_0x154052(0x1df),'motor':_0x154052(0x162),'range':_0x154052(0xd4)+_0x154052(0x223)},'mi_1s':{'name':_0x154052(0xdd)+_0x154052(0x1cd)+'l','voltage':_0x154052(0x1df),'motor':_0x154052(0x12c),'range':_0x154052(0xd4)+_0x154052(0x1b2)},'mi_3':{'name':_0x154052(0x1c3)+_0x154052(0x222),'voltage':_0x154052(0x1df),'motor':_0x154052(0x162),'range':_0x154052(0xd4)+_0x154052(0x1e9)},'g30d2':{'name':_0x154052(0xf4)+_0x154052(0xa4),'voltage':_0x154052(0x1df),'motor':_0x154052(0x1f1),'range':_0x154052(0xd4)+_0x154052(0x1e9)},'g2d':{'name':_0x154052(0xf4)+_0x154052(0x8f),'voltage':_0x154052(0x1df),'motor':_0x154052(0x107),'range':_0x154052(0xd4)+_0x154052(0x177)},'g3d':{'name':_0x154052(0xf4)+_0x154052(0xa5),'voltage':_0x154052(0x209),'motor':_0x154052(0x1d1),'range':_0x154052(0xd4)+_0x154052(0x133)},'f2_pro':{'name':_0x154052(0x195)+_0x154052(0x7b),'voltage':_0x154052(0x1df),'motor':_0x154052(0x145),'range':_0x154052(0xd4)+_0x154052(0x223)},'f40d':{'name':_0x154052(0x97)+'0D','voltage':_0x154052(0x1df),'motor':_0x154052(0x1f1),'range':_0x154052(0xd4)+_0x154052(0x1e9)},'e2_pro':{'name':_0x154052(0x129)+_0x154052(0x7b),'voltage':_0x154052(0x1df),'motor':_0x154052(0x121),'range':_0x154052(0xd4)+_0x154052(0x1dc)},'zt3_pro':{'name':_0x154052(0xda)+_0x154052(0x7b),'voltage':_0x154052(0x209),'motor':_0x154052(0x1f7),'range':_0x154052(0xd4)+_0x154052(0x133)},'gt3_pro':{'name':_0x154052(0x1a2)+_0x154052(0x9d),'voltage':_0x154052(0xc7),'motor':_0x154052(0x18c),'range':_0x154052(0x20f)+'al'},'d38d':{'name':_0x154052(0x128)+'8D','voltage':_0x154052(0x1df),'motor':_0x154052(0x12c),'range':_0x154052(0xd4)+_0x154052(0x1e9)}},scooterCards=[...document[_0x154052(0x204)+_0x154052(0xcf)](_0x154052(0x139)+_0x154052(0x90))];let activeModel=_0x154052(0x78)+_0x154052(0x18f);scooterCards[_0x154052(0x1af)](_0x2badf6=>_0x2badf6[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0x20e),()=>{const _0x3eca3d=_0x154052,_0xab2e8={'JSgJB':_0x3eca3d(0x163)+_0x3eca3d(0xa7),'ohIFj':_0x3eca3d(0x73)+'e','FYWvp':_0x3eca3d(0x22b)+'e'};activeModel=_0x2badf6[_0x3eca3d(0x1c0)][_0x3eca3d(0x1f2)],scooterCards[_0x3eca3d(0x1af)](_0x1862c8=>_0x1862c8[_0x3eca3d(0x95)][_0x3eca3d(0xe3)](_0x3eca3d(0xb1),_0x1862c8[_0x3eca3d(0x1c0)][_0x3eca3d(0x1f2)]===activeModel));const _0x39f8b2=models[activeModel];_0x39f8b2&&(document[_0x3eca3d(0x204)+_0x3eca3d(0xfb)](_0xab2e8[_0x3eca3d(0xec)])[_0x3eca3d(0xb0)+'t']=_0x39f8b2[_0x3eca3d(0xcb)],document[_0x3eca3d(0x204)+_0x3eca3d(0xfb)](_0xab2e8[_0x3eca3d(0x14a)])[_0x3eca3d(0xb0)+'t']=_0x39f8b2[_0x3eca3d(0x1b0)],document[_0x3eca3d(0x204)+_0x3eca3d(0xfb)](_0xab2e8[_0x3eca3d(0x215)])[_0x3eca3d(0xb0)+'t']=_0x39f8b2[_0x3eca3d(0xe2)]);}));const profileCards=document[_0x154052(0x204)+_0x154052(0xcf)](_0x154052(0x201)+_0x154052(0x90)),speedSlider=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0xd9)+'er');profileCards[_0x154052(0x1af)](_0x1aa9b8=>{const _0x4f13d1=_0x154052,_0x2d0e5e={'bFHbp':_0x4f13d1(0x118),'CsgGY':_0x4f13d1(0xe9)+'e','EGvkH':function(_0x349d8c,_0x800dec){return _0x349d8c(_0x800dec);},'fGpIJ':_0x4f13d1(0x20e)};_0x1aa9b8[_0x4f13d1(0xf7)+_0x4f13d1(0x98)](_0x2d0e5e[_0x4f13d1(0x176)],()=>{const _0x1ed357=_0x4f13d1;profileCards[_0x1ed357(0x1af)](_0x5b21af=>_0x5b21af[_0x1ed357(0x95)][_0x1ed357(0xaf)](_0x1ed357(0x118))),_0x1aa9b8[_0x1ed357(0x95)][_0x1ed357(0xbe)](_0x2d0e5e[_0x1ed357(0x174)]);const _0x5a4549=_0x1aa9b8[_0x1ed357(0x1c0)][_0x1ed357(0x131)];speedSlider&&(speedSlider[_0x1ed357(0x229)]=_0x5a4549,document[_0x1ed357(0x204)+_0x1ed357(0xfb)](_0x2d0e5e[_0x1ed357(0x1f9)])[_0x1ed357(0x86)]=_0x5a4549+(_0x1ed357(0x171)+_0x1ed357(0xd8)),_0x2d0e5e[_0x1ed357(0x1f4)](updateSliderFill,speedSlider));});});speedSlider&&speedSlider[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0x1fb),()=>{const _0x472658=_0x154052,_0x3b5488={'JSsgq':_0x472658(0xe9)+'e','fBUwJ':function(_0x35caec,_0x27e110){return _0x35caec(_0x27e110);}};document[_0x472658(0x204)+_0x472658(0xfb)](_0x3b5488[_0x472658(0x158)])[_0x472658(0x86)]=speedSlider[_0x472658(0x229)]+(_0x472658(0x171)+_0x472658(0xd8)),_0x3b5488[_0x472658(0xca)](updateSliderFill,speedSlider),profileCards[_0x472658(0x1af)](_0x3555c8=>_0x3555c8[_0x472658(0x95)][_0x472658(0xaf)](_0x472658(0x118)));});const powerCards=document[_0x154052(0x204)+_0x154052(0xcf)](_0x154052(0xf0)+'d'),powerSlider=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x1a8)+'er');powerCards[_0x154052(0x1af)](_0x4eaf71=>{const _0xf8d589=_0x154052,_0x2c27c3={'yQJTT':_0xf8d589(0x118),'ljbfk':_0xf8d589(0x15a)+'e','TzDVF':function(_0x71fbbf,_0x223dd6){return _0x71fbbf(_0x223dd6);},'vjUBZ':_0xf8d589(0x15c),'TLuhS':_0xf8d589(0x20e)};_0x4eaf71[_0xf8d589(0xf7)+_0xf8d589(0x98)](_0x2c27c3[_0xf8d589(0xd7)],()=>{const _0x1dba4b=_0xf8d589;powerCards[_0x1dba4b(0x1af)](_0x1af6ea=>_0x1af6ea[_0x1dba4b(0x95)][_0x1dba4b(0xaf)](_0x1dba4b(0x118))),_0x4eaf71[_0x1dba4b(0x95)][_0x1dba4b(0xbe)](_0x2c27c3[_0x1dba4b(0x1e6)]);const _0x1b9c70=_0x4eaf71[_0x1dba4b(0x1c0)][_0x1dba4b(0x185)];powerSlider&&(powerSlider[_0x1dba4b(0x229)]=_0x1b9c70,document[_0x1dba4b(0x204)+_0x1dba4b(0xfb)](_0x2c27c3[_0x1dba4b(0x17a)])[_0x1dba4b(0x86)]=_0x2c27c3[_0x1dba4b(0x1e4)](Number,_0x1b9c70)[_0x1dba4b(0x220)+_0x1dba4b(0x9e)](_0x2c27c3[_0x1dba4b(0x1d3)])+(_0x1dba4b(0x190)+_0x1dba4b(0x21d)),_0x2c27c3[_0x1dba4b(0x1e4)](updateSliderFill,powerSlider));});});powerSlider&&powerSlider[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0x1fb),()=>{const _0x1c3faa=_0x154052,_0x47e2ce={'YBspz':_0x1c3faa(0x15a)+'e','reHev':function(_0xf52900,_0x1186c0){return _0xf52900(_0x1186c0);},'kWbKf':_0x1c3faa(0x15c),'yftzF':function(_0x56d11d,_0x5d5293){return _0x56d11d(_0x5d5293);}};document[_0x1c3faa(0x204)+_0x1c3faa(0xfb)](_0x47e2ce[_0x1c3faa(0x117)])[_0x1c3faa(0x86)]=_0x47e2ce[_0x1c3faa(0x1b1)](Number,powerSlider[_0x1c3faa(0x229)])[_0x1c3faa(0x220)+_0x1c3faa(0x9e)](_0x47e2ce[_0x1c3faa(0x1c4)])+(_0x1c3faa(0x190)+_0x1c3faa(0x21d)),_0x47e2ce[_0x1c3faa(0xf3)](updateSliderFill,powerSlider),powerCards[_0x1c3faa(0x1af)](_0x1934fe=>_0x1934fe[_0x1c3faa(0x95)][_0x1c3faa(0xaf)](_0x1c3faa(0x118)));});function updateSliderFill(_0xd9e0c6){const _0x4b46de=_0x154052,_0x14ece8={'LIBQj':function(_0x2a6a3c,_0x5010a1){return _0x2a6a3c*_0x5010a1;},'SvJLT':function(_0x5cfbdc,_0x3e8937){return _0x5cfbdc/_0x3e8937;},'wPhMv':function(_0x41c0c2,_0x1864f8){return _0x41c0c2-_0x1864f8;},'HSwpS':function(_0x307270,_0x40614e){return _0x307270-_0x40614e;},'jKoDT':_0x4b46de(0x1e7)};if(!_0xd9e0c6)return;const _0x9cff61=_0x14ece8[_0x4b46de(0x19e)](_0x14ece8[_0x4b46de(0x77)](_0x14ece8[_0x4b46de(0x1b7)](_0xd9e0c6[_0x4b46de(0x229)],_0xd9e0c6[_0x4b46de(0x12f)]),_0x14ece8[_0x4b46de(0x13c)](_0xd9e0c6[_0x4b46de(0x18f)],_0xd9e0c6[_0x4b46de(0x12f)])),-0x198+0x18d5+-0x1*0x16d9);_0xd9e0c6[_0x4b46de(0x11d)][_0x4b46de(0x9f)+'y'](_0x14ece8[_0x4b46de(0x192)],_0x9cff61+'%');}if(speedSlider)updateSliderFill(speedSlider);function _0x1647(){const _0x5d44eb=['khPti','scootflash','iZGTQ','2725824xwAGCL','NAVEE\x20NT5\x20','ag\x22><small','label','power','ror','#adminErro','940W\x20Peak','NAVEE\x20XT5\x20','JphNO','G-5WK3DNBR','6000W\x20Peak','Fehler\x20bei','en...</spa','max','\x20<small>W<','Max','jKoDT','\x22code-labe','hmWAQ','Ninebot\x20F2','TkSla','ter\x206\x20Ultr','olgreich\x20ü','1400W\x20Peak','zYFnr','taSyV','Freigeben','hvURK','LIBQj','Xiaomi\x204\x20P','20px;\x20colo','v>\x0a\x20\x20\x20\x20\x20\x20\x20','Segway\x20GT3','dRiKG','onen\x20drück','https://sc','errter\x20Liz','Scooter\x20De','#powerSlid','on\x20diesem\x20','NAVEE\x20GT3\x20','Pro','/div>','jgnQj','now','forEach','motor','reHev','S:\x2025)','en.','\x20Scooter\x20(','className','2lRHuGo','wPhMv','jSOkR','dWivX','yWhLl','RcOsi','asten-Akti','s=\x22combo-t','ault','369uZESes','dataset','\x22code-key\x22','0|1|4|2|3','Xiaomi\x20Sco','kWbKf','#codeLabel','\x20Laden:','#applyButt','torage.app',';\x20font-siz','haltet.','removeItem','.combo-btn','/\x20Essentia','nt-cyan)','GrHhW','4jHTFGK','1200W\x20Peak','SdKQK','vjUBZ',';\x22>Keine\x20L','enzcode.','izenzcodes','e:\x200.85rem','kbZdO','=\x22text-ali','113802wvCYGG','substring','S:\x2028)','DpFcC','#adminCode','36V','DQhevLqL8','✅\x20Code\x20erf','le-action\x20','locked','TzDVF','m\x20Speicher','yQJTT','--fill','select','S:\x2030)','#licenseEr','rVHkO','5082581hzHeiP','code','#adminClos','\x20abgebroch','licenses/','700W\x20Peak','model','1500W\x20Peak','EGvkH','hidden','eForm','1600W\x20Peak','push','CsgGY','#comboDisp','input','Xiaomi\x204\x20U','IdPuM','LbAxL','mSpCo','[data-inpu','.profile-c','rXXAa','MfBce','querySelec','.firebases','gXZmi','#createCod','eDDin','48V','target','utton\x20clas','tvctv','759310cnFKBo','click','70\x20km/h\x20Du','112284ReBGWX','olgreich\x20e','1500','DHcwH','NAVEE\x20V40i','FYWvp','ice','PvAfY','bySoY','\x20km/h,\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20<','YtgNU','Falscher\x20A','/small>','#statBlock','Master\x20Adm','toLocaleSt','unshift','oter\x203','S:\x2032)','\x20oder\x20gesp','name','code_','</small>\x20','Tuning\x20erf','value','length','#rangeValu','ase.','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20','code-row-c','inline-fle','Als\x20Admini','hInput','1:58312852','MwNLP','close','\x20<div\x20clas','Aktiv','oth\x20wird\x20v','...\x20(','<span\x20clas','#motorValu','strator\x20an','asedatabas','l-text\x22>','SvJLT','navee_gt3_','bnCWR','ext-muted)','\x20Pro\x20D','cht\x20unters','is-unlocke','8509:web:7','c8e9fa9a31','Verbindung','Browser\x20ni','s=\x22combo-p','cLEEQ','AGlpL','vKgUH','innerHTML','n\x20in\x20Fireb','ter\x206\x20Pro','.firebasea','ked','includes','5831285285','\x22>Min.\x204\x20T','none','X\x20G2\x20D','ard','in\x20Code','unMHM','1350W\x20Peak','btn-unbloc','classList','#licenseFo','Ninebot\x20F4','stener','Ungültiger','TLRBL',')\x20-\x20Aktivi','rstellt:\x20<','\x20Pro','ring','setPropert','2189hzdWFR','toLowerCas','-2026','oth)...','X\x20G30D\x20II','X\x20G3\x20D','qFqlk','lue','s=\x22btn-tab','NAVEE\x20S60-','</span>\x0a\x20\x20','Erfolgreic','Q2mmOLLCK8','Code','.</div>','remove','textConten','selected','mit:\x20','div','submit','#generated','join','toString','\x20</button>','1733795QeiqRr','s=\x22code-ac','#adminDial','-action','var(--acce','add','NAVEE\x20N65','est1.fireb','ckForm','vice','Kunde','code>','color','SvRwm','52V','\x20is-blocke','NAVEE\x20ST3\x20','fBUwJ','voltage','pp.com','<div\x20style','efault-rtd','torAll','\x20\x20\x20\x20\x20\x20\x20\x20<b','#statActiv','mccrc','#statusLin','20\x20km/h\x20(U','map','trim','TLuhS','/h</small>','#speedSlid','Segway\x20ZT3','en\x20oder\x20fe','bluetooth','Xiaomi\x201S\x20','S:\x2045)','tton\x22>\x0a\x20\x20\x20','gemeldet.','ent','range','toggle','\x20vorhanden','RujXa','Verbunden\x20','lay','</span>','#speedValu','.btn-table','badge-bloc','JSgJB','Firebase-F','-info\x22>\x0a\x20\x20','xJnpQ','.power-car','640pYDBKS','createElem','yftzF','Ninebot\x20MA','display','put','addEventLi','leckmeinee','val','toUpperCas','tor','\x22\x20type=\x22bu','\x22code-main','vUYuf','\x20padding:\x20','FlLTO','ofBLP','eu\x20starten','#adminTool','find','RT-','Profil\x20wir','1000W\x20Peak','UiwLH','ykBRu','tXOQo','\x202\x20/\x20M365\x20','\x20\x20\x20\x20\x20\x20\x20\x20\x20','sIwaV','nt-red)','OEEpt','#licenseIn','6DcewXy','ehler\x20beim','wLJFN','toISOStrin','Web-Blueto','d\x20geflasht','YBspz','active','ter\x205\x20Pro','YCgZH','tions\x22>\x0a\x20\x20','pSKMJ','style','Xiaomi\x20Pro','Suche\x20nach','XxyxHW60ur','750W\x20Peak','TfFie','#codeSearc','kbOHT','btdlx','UPTet','Gesperrt','Ninebot\x20D3','Ninebot\x20E2','pan\x20class=','filter','500W\x20Peak','lQXQG','bertragen!','min','#codeList','speed','Sperren','S:\x2040)','keys','EfKvh','requestDev','showModal','tützt.','.scooter-c','appendChil','ier','HSwpS','#adminOpen','InsSt','h\x20freigesc','wjndF','8f6efa0c3e','r:\x20var(--t','badge-acti','dge\x20','900W\x20Peak','\x20\x20\x20\x20\x20\x20\x20\x20<s','fKaSN','S:\x2050)','AmhZS','ohIFj','#adminUnlo','\x22status-ba','b.europe-w','laceholder','ltra','#connectDe','KgxSq','preventDef','\x20\x20\x20\x20\x20\x20</di','e.app','vEaMD','gn:center;','ootflash-d','JSsgq','5|4|2|0|3|','#powerValu','dmin\x20Code!','de-DE','#statTotal','vGafU','\x20Scooter\x20n','licenses','</code>\x20(','600W\x20Peak','#voltageVa','#licenseGa','Input','MnPWX','hCfcM','AIzaSyCNcw','div\x20class=','#appShell','rt_codes','Xiaomi\x20Ele','dkMCK','PgoPV','random','error','\x20<small>km','#clearComb','ert','bFHbp','split','fGpIJ','S:\x2035)','yNFCG','aEwkJ','ljbfk','btn-block','hlgeschlag','ctric\x20Scoo'];_0x1647=function(){return _0x5d44eb;};return _0x1647();}if(powerSlider)updateSliderFill(powerSlider);let secretSequence=[];const comboDisplay=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x1fa)+_0x154052(0xe7));document[_0x154052(0x204)+_0x154052(0xcf)](_0x154052(0x1cc)+_0x154052(0x200)+'t]')[_0x154052(0x1af)](_0x47d1e6=>{const _0x511082=_0x154052,_0xad489f={'yWhLl':function(_0x3daed1,_0x4d8c37){return _0x3daed1>=_0x4d8c37;},'TLRBL':function(_0x32a969){return _0x32a969();},'RcOsi':_0x511082(0x20e)};_0x47d1e6[_0x511082(0xf7)+_0x511082(0x98)](_0xad489f[_0x511082(0x1bb)],()=>{const _0x1156d7=_0x511082;if(_0xad489f[_0x1156d7(0x1ba)](secretSequence[_0x1156d7(0x22a)],-0xc74+-0x17b4+-0x486*-0x8))return;secretSequence[_0x1156d7(0x1f8)](_0x47d1e6[_0x1156d7(0x1c0)][_0x1156d7(0x1fb)]),_0xad489f[_0x1156d7(0x9a)](renderCombo);});}),document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x172)+'o')?.[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0x20e),()=>{const _0x24e680=_0x154052,_0xb7d10c={'hvURK':function(_0x38aac8){return _0x38aac8();}};secretSequence=[],_0xb7d10c[_0x24e680(0x19d)](renderCombo);});function renderCombo(){const _0x4bb024=_0x154052,_0x5d03d7={'aEwkJ':_0x4bb024(0x72)+_0x4bb024(0x82)+_0x4bb024(0x14e)+_0x4bb024(0x8d)+_0x4bb024(0x1bc)+_0x4bb024(0x1a4)+_0x4bb024(0x18e)+'n>'};if(!secretSequence[_0x4bb024(0x22a)]){comboDisplay[_0x4bb024(0x86)]=_0x5d03d7[_0x4bb024(0x179)];return;}comboDisplay[_0x4bb024(0x86)]=secretSequence[_0x4bb024(0xd5)]((_0x2fc0f4,_0x3b8361)=>_0x4bb024(0x72)+_0x4bb024(0x1bd)+_0x4bb024(0x183)+'>#'+(_0x3b8361+(-0xc88+0x12f8+-0x66f))+_0x4bb024(0x227)+_0x2fc0f4+_0x4bb024(0xe8))[_0x4bb024(0xb6)]('');}const connectBtn=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x150)+_0x154052(0xc2)),applyBtn=document[_0x154052(0x204)+_0x154052(0xfb)](_0x154052(0x1c7)+'on');connectBtn&&connectBtn[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0x20e),async()=>{const _0x183412=_0x154052,_0x59466f={'btdlx':function(_0x457517,_0x51653b){return _0x457517(_0x51653b);},'TfFie':_0x183412(0x11f)+_0x183412(0x1b4)+_0x183412(0x115)+_0x183412(0xa3),'gXZmi':function(_0xe95019,_0x3657ac,_0x2b85ae){return _0xe95019(_0x3657ac,_0x2b85ae);},'SvRwm':_0x183412(0x115)+_0x183412(0x70)+_0x183412(0x1a9)+_0x183412(0x81)+_0x183412(0x7c)+_0x183412(0x138),'InsSt':function(_0x2ef00a,_0x4a1d3a){return _0x2ef00a(_0x4a1d3a);},'sIwaV':_0x183412(0x1a7)+_0x183412(0xc2),'DHcwH':_0x183412(0x80)+_0x183412(0x1ef)+_0x183412(0xdb)+_0x183412(0x17c)+_0x183412(0x1b3)};_0x59466f[_0x183412(0x125)](status,_0x59466f[_0x183412(0x122)]);try{if(!navigator[_0x183412(0xdc)]){_0x59466f[_0x183412(0x206)](status,_0x59466f[_0x183412(0xc6)],!![]);return;}const _0x3b297d=await navigator[_0x183412(0xdc)][_0x183412(0x136)+_0x183412(0x216)]({'acceptAllDevices':!![]});_0x59466f[_0x183412(0x13e)](status,_0x183412(0xe6)+_0x183412(0xb2)+(_0x3b297d[_0x183412(0x225)]||_0x59466f[_0x183412(0x10d)]));}catch(_0x121fd1){_0x59466f[_0x183412(0x206)](status,_0x59466f[_0x183412(0x213)],!![]);}});applyBtn&&applyBtn[_0x154052(0xf7)+_0x154052(0x98)](_0x154052(0x20e),()=>{const _0x317eae=_0x154052,_0x461a1e={'SdKQK':function(_0x2f1831,_0x2817a9){return _0x2f1831(_0x2817a9);},'FlLTO':_0x317eae(0x228)+_0x317eae(0x198)+_0x317eae(0x12e)+_0x317eae(0x15f)+_0x317eae(0x102)+'.','OEEpt':_0x317eae(0x212),'RujXa':function(_0xa659a0,_0x3078bb){return _0xa659a0(_0x3078bb);},'AGlpL':function(_0x2e20b7,_0xfd80ab,_0x3841a0){return _0x2e20b7(_0xfd80ab,_0x3841a0);}},_0x476932=speedSlider?speedSlider[_0x317eae(0x229)]:'35',_0x36c12a=powerSlider?powerSlider[_0x317eae(0x229)]:_0x461a1e[_0x317eae(0x10f)];_0x461a1e[_0x317eae(0xe5)](status,_0x317eae(0x106)+_0x317eae(0x116)+_0x317eae(0x71)+_0x476932+_0x317eae(0x219)+_0x36c12a+'W)'),_0x461a1e[_0x317eae(0x84)](setTimeout,()=>{const _0x332200=_0x317eae;_0x461a1e[_0x332200(0x1d2)](status,_0x461a1e[_0x332200(0x100)]);},0xf37+-0x20*0x7b+0x605);});initRealtimeSync();
+/* ─────────── FIREBASE INITIALISIERUNG ─────────── */
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getDatabase, ref, set, get, child, update, onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCNcwQ2mmOLLCK8XxyxHW60urDQhevLqL8",
+    authDomain: "scootflash.firebaseapp.com",
+    databaseURL: "https://scootflash-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "scootflash",
+    storageBucket: "scootflash.firebasestorage.app",
+    messagingSenderId: "583128528509",
+    appId: "1:583128528509:web:78f6efa0c3ec8e9fa9a314",
+    measurementId: "G-5WK3DNBRRY"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+  const ADMIN_CODE = "RT-ADMIN-2026";
+
+  /* ─────────── DOM ELEMENTS ─────────── */
+  const licenseGate = document.querySelector('#licenseGate');
+  const appShell = document.querySelector('#appShell');
+  const licenseForm = document.querySelector('#licenseForm');
+  const licenseInput = document.querySelector('#licenseInput');
+  const licenseError = document.querySelector('#licenseError');
+
+  const adminDialog = document.querySelector('#adminDialog');
+  const adminClose = document.querySelector('#adminClose');
+  const adminUnlockForm = document.querySelector('#adminUnlockForm');
+  const adminCodeInput = document.querySelector('#adminCodeInput');
+  const adminError = document.querySelector('#adminError');
+  const adminTools = document.querySelector('#adminTools');
+  const createCodeForm = document.querySelector('#createCodeForm');
+  const codeLabel = document.querySelector('#codeLabel');
+  const generatedCode = document.querySelector('#generatedCode');
+  const codeList = document.querySelector('#codeList');
+  const codeSearchInput = document.querySelector('#codeSearchInput');
+
+  const statTotal = document.querySelector('#statTotal');
+  const statActive = document.querySelector('#statActive');
+  const statBlocked = document.querySelector('#statBlocked');
+  const adminOpenBtn = document.querySelector('#adminOpen');
+
+  let globalCodes = [];
+
+  function status(msg, err = false) {
+    const el = document.querySelector('#statusLine');
+    if (el) {
+      el.textContent = msg;
+      el.style.color = err ? 'var(--accent-red)' : 'var(--accent-cyan)';
+    }
+  }
+
+  /* ─────────── ECHTZEIT SYNCHRONISATION ─────────── */
+  function initRealtimeSync() {
+    localStorage.removeItem('rt_codes');
+
+    globalCodes = [
+      { id: '1', code: 'RT-ADMIN-2026', label: 'Master Admin Code', active: true }
+    ];
+    renderCodes();
+
+    if (db) {
+      const licensesRef = ref(db, 'licenses');
+      onValue(licensesRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          const fbCodes = [];
+          Object.keys(data).forEach(key => {
+            const itemData = data[key];
+            fbCodes.push({ 
+              id: key, 
+              code: itemData.code || key, 
+              active: itemData.active !== undefined ? itemData.active : true, 
+              ...itemData 
+            });
+          });
+          if (fbCodes.length > 0) {
+            globalCodes = fbCodes;
+            renderCodes(codeSearchInput ? codeSearchInput.value : '');
+          }
+        }
+      }, (error) => {
+        console.error("Firebase-Fehler beim Laden:", error);
+      });
+    }
+  }
+
+  /* ─────────── LIZENZ GATE CHECK ─────────── */
+  if (licenseForm) {
+    licenseForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const inputCode = licenseInput ? licenseInput.value.trim().toUpperCase() : '';
+
+      if (inputCode === ADMIN_CODE) {
+        licenseGate.classList.add('is-unlocked');
+        appShell.classList.remove('locked');
+        if (licenseError) licenseError.textContent = '';
+        if (adminOpenBtn) adminOpenBtn.style.display = 'inline-flex';
+        status('Als Administrator angemeldet.');
+        return;
+      }
+
+      const found = globalCodes.find(item => item.code.toUpperCase() === inputCode && item.active);
+
+      if (found) {
+        licenseGate.classList.add('is-unlocked');
+        appShell.classList.remove('locked');
+        if (licenseError) licenseError.textContent = '';
+        if (adminOpenBtn) adminOpenBtn.style.display = 'none';
+        status('Erfolgreich freigeschaltet.');
+      } else {
+        if (licenseError) licenseError.textContent = 'Ungültiger oder gesperrter Lizenzcode.';
+        if (licenseInput) licenseInput.select();
+      }
+    });
+  }
+
+  /* ─────────── ADMIN PANEL & CODES ─────────── */
+  if (adminOpenBtn) {
+    adminOpenBtn.addEventListener('click', () => adminDialog.showModal());
+  }
+
+  if (adminUnlockForm) {
+    adminUnlockForm.addEventListener('submit', event => {
+      event.preventDefault();
+      if (adminCodeInput.value.trim().toUpperCase() === ADMIN_CODE) {
+        adminTools.hidden = false;
+        adminUnlockForm.hidden = true;
+        adminError.textContent = '';
+        renderCodes();
+      } else {
+        adminError.textContent = 'Falscher Admin Code!';
+      }
+    });
+  }
+
+  if (adminClose) adminClose.addEventListener('click', () => adminDialog.close());
+
+  function renderCodes(searchQuery = '') {
+    if (!codeList) return;
+    codeList.innerHTML = '';
+
+    const filtered = globalCodes.filter(item => 
+      item.code.toLowerCase().includes(searchQuery.toLowerCase()) || 
+      (item.label && item.label.toLowerCase().includes(searchQuery.toLowerCase()))
+    );
+
+    if (statTotal) statTotal.textContent = globalCodes.length;
+    if (statActive) statActive.textContent = globalCodes.filter(c => c.active).length;
+    if (statBlocked) statBlocked.textContent = globalCodes.filter(c => !c.active).length;
+
+    if (!filtered.length) {
+      codeList.innerHTML = '<div style="text-align:center; padding: 20px; color: var(--text-muted); font-size: 0.85rem;">Keine Lizenzcodes vorhanden.</div>';
+      return;
+    }
+
+    filtered.forEach((item) => {
+      const row = document.createElement('div');
+      row.className = `code-row-card${item.active ? '' : ' is-blocked'}`;
+      
+      row.innerHTML = `
+        <div class="code-main-info">
+          <span class="code-key">${item.code}</span>
+          <span class="code-label-text">${item.label || 'Kunde'}</span>
+        </div>
+        <div class="code-actions">
+          <span class="status-badge ${item.active ? 'badge-active' : 'badge-blocked'}">${item.active ? 'Aktiv' : 'Gesperrt'}</span>
+          <button class="btn-table-action ${item.active ? 'btn-block' : 'btn-unblock'}" type="button">
+            ${item.active ? 'Sperren' : 'Freigeben'}
+          </button>
+        </div>`;
+      
+      row.querySelector('.btn-table-action').addEventListener('click', () => {
+        const newStatus = !item.active;
+        item.active = newStatus;
+        renderCodes(searchQuery);
+
+        if (db && item.id && item.id !== '1') {
+          update(ref(db, 'licenses/' + item.id), { active: newStatus });
+        }
+      });
+      codeList.appendChild(row);
+    });
+  }
+
+  if (codeSearchInput) {
+    codeSearchInput.addEventListener('input', (e) => renderCodes(e.target.value));
+  }
+
+  /* ─────────── LIZENZCODE-GENERATOR (MIT ACTIVE: TRUE) ─────────── */
+  if (createCodeForm) {
+    createCodeForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const label = codeLabel.value.trim();
+      if (!label) return;
+
+      const randomPart = Math.random().toString(36).substring(2, 8).toUpperCase();
+      const newCode = `RT-${randomPart}-2026`;
+      const localId = 'code_' + Date.now();
+
+      const newEntry = { 
+        id: localId,
+        code: newCode, 
+        label: label, 
+        created: new Date().toISOString(), 
+        active: true 
+      };
+
+      globalCodes.unshift(newEntry);
+      renderCodes(codeSearchInput ? codeSearchInput.value : '');
+
+      if (db) {
+        try {
+          set(ref(db, 'licenses/' + localId), newEntry);
+        } catch (e) {
+          console.error("Fehler beim Speichern in Firebase.");
+        }
+      }
+
+      if (generatedCode) {
+        generatedCode.hidden = false;
+        generatedCode.innerHTML = `✅ Code erfolgreich erstellt: <code>${newCode}</code> (${label}) - Aktiviert`;
+      }
+      codeLabel.value = '';
+    });
+  }
+
+  /* ─────────── CONFIGURATOR & HARDWARE LOGIC (AKTUALISIERT) ─────────── */
+  const models = {
+    // NAVEE MODELLE
+    navee_gt3_max: { name: 'NAVEE GT3 Max', voltage: '48V', motor: '1500W Peak', range: '20 km/h (US: 45)' },
+    navee_st3_pro: { name: 'NAVEE ST3 Pro', voltage: '48V', motor: '1350W Peak', range: '20 km/h (US: 40)' },
+    navee_xt5_max: { name: 'NAVEE XT5 Max', voltage: '48V', motor: '1600W Peak', range: '20 km/h (US: 50)' },
+    navee_nt5_max: { name: 'NAVEE NT5 Max', voltage: '48V', motor: '1400W Peak', range: '20 km/h (US: 45)' },
+    navee_n65:     { name: 'NAVEE N65', voltage: '48V', motor: '1000W Peak', range: '20 km/h (US: 32)' },
+    navee_s60d:    { name: 'NAVEE S60-D', voltage: '48V', motor: '1200W Peak', range: '20 km/h (US: 40)' },
+    navee_v40i:    { name: 'NAVEE V40i Pro', voltage: '36V', motor: '700W Peak', range: '20 km/h (US: 32)' },
+
+    // XIAOMI MODELLE
+    mi_6_ultra:    { name: 'Xiaomi Electric Scooter 6 Ultra', voltage: '48V', motor: '1200W Peak', range: '20 km/h (US: 45)' },
+    mi_6_pro:      { name: 'Xiaomi Electric Scooter 6 Pro', voltage: '48V', motor: '1000W Peak', range: '20 km/h (US: 35)' },
+    mi_5_pro:      { name: 'Xiaomi Electric Scooter 5 Pro', voltage: '36V', motor: '900W Peak', range: '20 km/h (US: 32)' },
+    mi_4_ultra:    { name: 'Xiaomi 4 Ultra', voltage: '48V', motor: '940W Peak', range: '20 km/h (US: 32)' },
+    mi_4_pro:      { name: 'Xiaomi 4 Pro', voltage: '48V', motor: '1000W Peak', range: '20 km/h (US: 35)' },
+    mi_pro2:       { name: 'Xiaomi Pro 2 / M365 Pro', voltage: '36V', motor: '600W Peak', range: '20 km/h (US: 32)' },
+    mi_1s:         { name: 'Xiaomi 1S / Essential', voltage: '36V', motor: '500W Peak', range: '20 km/h (US: 25)' },
+    mi_3:          { name: 'Xiaomi Scooter 3', voltage: '36V', motor: '600W Peak', range: '20 km/h (US: 30)' },
+
+    // SEGWAY-NINEBOT MODELLE
+    g30d2:         { name: 'Ninebot MAX G30D II', voltage: '36V', motor: '700W Peak', range: '20 km/h (US: 30)' },
+    g2d:           { name: 'Ninebot MAX G2 D', voltage: '36V', motor: '1000W Peak', range: '20 km/h (US: 35)' },
+    g3d:           { name: 'Ninebot MAX G3 D', voltage: '48V', motor: '1200W Peak', range: '20 km/h (US: 40)' },
+    f2_pro:        { name: 'Ninebot F2 Pro D', voltage: '36V', motor: '900W Peak', range: '20 km/h (US: 32)' },
+    f40d:          { name: 'Ninebot F40D', voltage: '36V', motor: '700W Peak', range: '20 km/h (US: 30)' },
+    e2_pro:        { name: 'Ninebot E2 Pro D', voltage: '36V', motor: '750W Peak', range: '20 km/h (US: 28)' },
+    zt3_pro:       { name: 'Segway ZT3 Pro D', voltage: '48V', motor: '1600W Peak', range: '20 km/h (US: 40)' },
+    gt3_pro:       { name: 'Segway GT3 Pro', voltage: '52V', motor: '6000W Peak', range: '70 km/h Dual' },
+    d38d:          { name: 'Ninebot D38D', voltage: '36V', motor: '500W Peak', range: '20 km/h (US: 30)' }
+  };
+
+  const scooterCards = [...document.querySelectorAll('.scooter-card')];
+  let activeModel = 'navee_gt3_max';
+
+  scooterCards.forEach(card => card.addEventListener('click', () => {
+    activeModel = card.dataset.model;
+    scooterCards.forEach(c => c.classList.toggle('selected', c.dataset.model === activeModel));
+    const m = models[activeModel];
+    if (m) {
+      document.querySelector('#voltageValue').textContent = m.voltage;
+      document.querySelector('#motorValue').textContent = m.motor;
+      document.querySelector('#rangeValue').textContent = m.range;
+    }
+  }));
+
+  const profileCards = document.querySelectorAll('.profile-card');
+  const speedSlider = document.querySelector('#speedSlider');
+
+  profileCards.forEach(card => {
+    card.addEventListener('click', () => {
+      profileCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const speed = card.dataset.speed;
+      if (speedSlider) {
+        speedSlider.value = speed;
+        document.querySelector('#speedValue').innerHTML = `${speed} <small>km/h</small>`;
+        updateSliderFill(speedSlider);
+      }
+    });
+  });
+
+  if (speedSlider) {
+    speedSlider.addEventListener('input', () => {
+      document.querySelector('#speedValue').innerHTML = `${speedSlider.value} <small>km/h</small>`;
+      updateSliderFill(speedSlider);
+      profileCards.forEach(c => c.classList.remove('active'));
+    });
+  }
+
+  const powerCards = document.querySelectorAll('.power-card');
+  const powerSlider = document.querySelector('#powerSlider');
+
+  powerCards.forEach(card => {
+    card.addEventListener('click', () => {
+      powerCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      const power = card.dataset.power;
+      if (powerSlider) {
+        powerSlider.value = power;
+        document.querySelector('#powerValue').innerHTML = `${Number(power).toLocaleString('de-DE')} <small>W</small>`;
+        updateSliderFill(powerSlider);
+      }
+    });
+  });
+
+  if (powerSlider) {
+    powerSlider.addEventListener('input', () => {
+      document.querySelector('#powerValue').innerHTML = `${Number(powerSlider.value).toLocaleString('de-DE')} <small>W</small>`;
+      updateSliderFill(powerSlider);
+      powerCards.forEach(c => c.classList.remove('active'));
+    });
+  }
+
+  function updateSliderFill(s) {
+    if (!s) return;
+    const pct = ((s.value - s.min) / (s.max - s.min)) * 100;
+    s.style.setProperty('--fill', `${pct}%`);
+  }
+
+  if (speedSlider) updateSliderFill(speedSlider);
+  if (powerSlider) updateSliderFill(powerSlider);
+
+  let secretSequence = [];
+  const comboDisplay = document.querySelector('#comboDisplay');
+
+  document.querySelectorAll('.combo-btn[data-input]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (secretSequence.length >= 8) return;
+      secretSequence.push(btn.dataset.input);
+      renderCombo();
+    });
+  });
+
+  document.querySelector('#clearCombo')?.addEventListener('click', () => {
+    secretSequence = [];
+    renderCombo();
+  });
+
+  function renderCombo() {
+    if (!secretSequence.length) {
+      comboDisplay.innerHTML = '<span class="combo-placeholder">Min. 4 Tasten-Aktionen drücken...</span>';
+      return;
+    }
+    comboDisplay.innerHTML = secretSequence.map((act, i) => `<span class="combo-tag"><small>#${i+1}</small> ${act}</span>`).join('');
+  }
+
+  const connectBtn = document.querySelector('#connectDevice');
+  const applyBtn = document.querySelector('#applyButton');
+
+  if (connectBtn) {
+    connectBtn.addEventListener('click', async () => {
+      status("Suche nach Scooter (Web-Bluetooth)...");
+      try {
+        if (!navigator.bluetooth) {
+          status("Web-Bluetooth wird von diesem Browser nicht unterstützt.", true);
+          return;
+        }
+        const device = await navigator.bluetooth.requestDevice({ acceptAllDevices: true });
+        status(`Verbunden mit: ${device.name || 'Scooter Device'}`);
+      } catch (err) {
+        status("Verbindung abgebrochen oder fehlgeschlagen.", true);
+      }
+    });
+  }
+
+  if (applyBtn) {
+    applyBtn.addEventListener('click', () => {
+      const spd = speedSlider ? speedSlider.value : '35';
+      const pwr = powerSlider ? powerSlider.value : '1500';
+      status(`Profil wird geflasht... (${spd} km/h, ${pwr}W)`);
+        status("Tuning erfolgreich übertragen! Scooter neu starten.");
+      }, 1500);
+    });
+  }
+
+  initRealtimeSync();
